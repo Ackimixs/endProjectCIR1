@@ -39,3 +39,12 @@
     debug ALORS QU'IL FALLAIT JUSTE MERTTRE UNE FUCKING LIGNE DE CODE
 
     fin de journée menu
+
+27/06
+    javascript pour avoir un site qui marche en fonction des planete qu'on lui donne dans les fichier
+    s'il n'y a pas toutes les planetes dans le fichier le programe va quand meme marcher
+
+28/06
+    lune
+    menu + valgrind + debug pour avoir un bon prog
+    verification du js et du c
