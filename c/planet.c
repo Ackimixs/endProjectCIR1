@@ -83,7 +83,7 @@ struct Vector* calcAceleration(struct Vector* position) {
 }
 
 struct Planet* eulerMethodWithoutRecurence(struct Planet* planet, struct Point* lastPoint) {
-    for (int i = 0 ; i < (getRevolutionPeriod(planet)*20); i++) {
+    for (int i = 0 ; i < (getRevolutionPeriod(planet)*10); i++) {
 
         struct Vector* accel = calcAceleration(getPointPosition(lastPoint));
 
@@ -207,7 +207,7 @@ void printTrajectoryFile(struct Trajectory* trajectory, FILE* file) {
 
 
     //Call this function just to remove the point
-    getFirstPointAndRemoveGood(trajectory);
+    removeFirstPoint(trajectory);
 }
 
 void writeFile(struct Planet** planets, int method, char* fileName) {

@@ -6,7 +6,7 @@ html, body {
 canvas {
     background : #3D3D3D;
     border-radius: 30px;
-    /*position: absolute;*/
+    padding: 5px;
 }
 
 li {
@@ -27,6 +27,7 @@ li {
     color : rgb(242, 240, 240);
     display: flex;
     flex-direction: column;
+    padding: 15px;
 }
 
 #rectangle {
@@ -76,7 +77,6 @@ header {
 .clo{
     display: none;
 }
-/* permet de d'afficher le bouton ouvrir lorsque l'on arrive sur le site et ne pas afficher le bouton fermer */
 
 .open .op{
     display: none;
@@ -86,9 +86,6 @@ header {
     display: block;
 }
 
-.open .list{
-    transform: translateX(0%);
-}  /* Permet de faire apparaître le menu lorsque l'on clique sur le bouton */
 
 #image{
     width: 300px;
@@ -102,6 +99,7 @@ header {
 li input[type="checkbox"]{
     transform: scale(2);
 }
+
 ul * {
     margin: 7px 15px 0 0;
 }

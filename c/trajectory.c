@@ -26,7 +26,7 @@ struct Point* getFirstPointAndRemove(struct Trajectory* trajectory) {
     return dequeueV2(getTrajectoryQueue(trajectory), &valid);
 }
 
-struct Point* getFirstPointAndRemoveGood(struct Trajectory* trajectory) {
+struct Point* removeFirstPoint(struct Trajectory* trajectory) {
     bool valid;
     return dequeueV2Delete(getTrajectoryQueue(trajectory), &valid);
 }

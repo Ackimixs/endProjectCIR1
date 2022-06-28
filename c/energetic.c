@@ -15,6 +15,8 @@ double EnergeticEtude(struct Planet* planet) {
         double Ec = calcEc(getPlanetWeight(planet), normeVector(getPointVelocity(p)));
 
         arrayEm[i] = (Ec + Epp);
+
+        removeFirstPoint(getTrajectory(planet));
     }
 
     double ratio = 0;

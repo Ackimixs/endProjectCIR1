@@ -16,7 +16,7 @@ void addPoint(struct Trajectory* trajectory, struct Point* point);
 
 struct Point* getFirstPointAndRemove(struct Trajectory* trajectory);
 
-struct Point* getFirstPointAndRemoveGood(struct Trajectory* trajectory);
+struct Point* removeFirstPoint(struct Trajectory* trajectory);
 
 struct Point* getFirstPointWithoutRemove(struct Trajectory* trajectory);
 

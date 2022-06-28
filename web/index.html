@@ -1,19 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script src="scripts/main.js" type="module"></script>
+<html lang="fr">
+ <head>
+   <meta charset="utf-8">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <title> index </title>
     <link rel="stylesheet" href="styles/style.css">
-</head>
-<body>
-    <canvas id="solarSystem" height="1000" width="1000"></canvas>
-    <div id="checkboxMenu">
-
-    </div>
-    <label>
-        <input id="range" type="range" min="1" max="40" step="1" value="1">speed
-    </label>
-    <button type="button">pause / play</button>
-</body>
-</html>
+    <script src="scripts/anim2.js" defer></script>
+    <title>Site projet</title>
+ </head>
+ <body>
+ <header>
+     <nav class="menuHead">
+         <ul>
+             <li><a href="index.html">Presentation</a></li>
+             <li><a href="./simu.html">Simulation</a></li>
+         </ul>
+     </nav>
+     <h1>Welcome to our website !</h1>
+     <img id="image" src="assets/logo-footer.png" alt="logo"/>
+ </header>
+ <main>
+     <br>
+     <p id="intro">Here is our website for the end of year project. The goal is to model the trajectory of the solar system’s planets. We used the Euler and asymmetric Euler methods. Calculations are performed using functions coded in C language and modeling is done with JavaScript. The website is made in HTML and CSS. We have set up checkboxes to display the planets around the sun and the possibility of displaying the planets on a date of our choice between January 1, 2000 and December 31, 2020 using the calendar.</p>
+     <ul id="plan">
+         <li>Mercury <button id="Mer">see more</button></li>
+         <p id="contMer" class="count" hidden><img src="assets/mercury.png"> <br>•	Telluric planet<br>•	Presence of ice at the pole<br>•	Almost non-existent of atmosphere, except the presence of traces of gas<br>•	Very large temperature difference (from -172degC to 427degC)<br>•	orbital period of 88 earth days<br>•	rotation period of 58,7 earth hours </p>
+         <li>Venus <button id="Ven">see more</button></li>
+         <p id="contVen" class="count" hidden><img src="assets/venus.png"> <br>•	Telluric planet<br>•	Relief that has many mountains, canyons, volcanoes and is riddled with craters<br>•	No trace of water<br>•	Atmosphere mainly composed of carbon dioxide(CO2) but also nitrogen (N2), sulfur dioxide (S2) and sulfuric acid (H2S)<br>•	very important greenhouse effect<br>•	453degC degree average temperature <br>•	orbital period of 224,7 earth days <br>•	rotation period of 243 earth days </p>
+         <li>Earth <button id="Ear">see more</button></li>
+         <p id="contEar" class="count" hidden><img src="assets/earth-removebg-preview.png"> <br>•	Telluric planet<br>•	soil rich in mineral salts<br>•	large amount of water<br>•	presence of life  <br>•	Atmosphere composed of nitrogen (N2), oxygen (O2), argon (Ar), carbon dioxide(CO2), water vapour (H2O) and other gases<br>•	temperature varying between -60degC et 45degC <br>•	orbital period of 365,25 earth days <br>•	rotation period of 24 earth hours<br>•	One natural satellite : moon<img src="assets/bogda.jpg" id="bogda"> </p>
+         <li>Mars <button id="Mar">see more</button></li>
+         <p id="contMar" class="count" hidden><img src="assets/mars.png"> <br>•	Telluric planet<br>•	Very accentuated relief and presence of numerous craters<br>•	Presence of ice at the pole<br>•	Atmosphere mainly composed of carbon dioxide (CO2), but also nitrogen (N2),argon (Ar) and even oxygen (O2);<br>•	Relatively large temperature differences (from-123degC to 37degC)<br>•	Presence of violent wind <br>•	orbital period of 687 earth days<br>•	rotation period of 24,63 earth hours </p>
+         <li>Jupiter <button id="Jup">see more</button></li>
+         <p id="contJup" class="count" hidden><img src="assets/jupiter.png"> <br>•	gaseous planet<br>•	largest planet in the solar system<br>•	No water trace<br>•	Significant hydrogen atmosphere (H2) and helium (He) but also ammonia(NH3), methane (CH4) and ethane (C2H6);<br>•	Temperature in the outer part of the clouds about -153degC<br>•	Violent wind that can go up to 500 km/h <br>•	orbital period of 11,87 earth years <br>•	rotation period of 9,93 earth hours </p>
+         <li>Saturn <button id="Sat">see more</button></li>
+         <p id="contSat" class="count" hidden><img src="assets/saturne.png"> <br>•	gaseous planet<br>•	presence of thousands of colored rings that are made of ice and rock<br>•	No water trace<br>•	Significant hydrogen atmosphere  (H2), helium (He), methane (CH4) and ammonia (NH3)<br>•	Temperature in the outer part of the clouds about -185degC<br>•	orbital period of 29,46 earth years <br>•	rotation period of 10,66 earth hours </p>
+         <li>Uranus <button id="Ura">see more</button></li>
+         <p id="contUra" class="count" hidden><img src="assets/uranus.png"> <br>•	gaseous planet<br>•	described as an ice giant<br>•	Presence of greenish gases forming an atmosphere of hydrogen (H2), helium (He)and methane (CH4)<br>•	No water trace<br>•	Temperature in the outer part of the clouds about -214degC<br>•	orbital period of 84,3 earth years <br>•	Rotation period of 17,2 earth hours </p>
+         <li>Neptune <button id="Nep">see more</button></li>
+         <p id="contNep" class="count" hidden><img src="assets/neptune.png"> <br>•	gaseous planet<br>•	Also described as an ice giant <br>•	Presence of bluish gases forming a hydrogen atmosphere (H2), helium (He) and methane (CH4)<br>•	No water trace <br>•	Temperature in the outer part of the clouds about -225degC<br>•	Violent wind that can go up to 2000 km/h <br>•	orbital period of 164,8 earth years<br>•	rotation period of 16,11 earth hours </p>
+     </ul>
+ </main>
+ </body>

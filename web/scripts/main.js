@@ -162,6 +162,7 @@ function init() {
 
 function main() {
     init()
+    console.log(planetSetup)
     setInterval(() => {
         drawEveryPlanet();
     }, 1);
