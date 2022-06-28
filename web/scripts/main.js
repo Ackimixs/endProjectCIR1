@@ -15,6 +15,8 @@ let rangeValue = 1;
 
 let speed = 1
 
+let intervalId;
+
 let canvas = document.getElementById("solarSystem");
 let context = canvas.getContext("2d");
 
@@ -162,8 +164,7 @@ function init() {
 
 function main() {
     init()
-    console.log(planetSetup)
-    setInterval(() => {
+    intervalId = setInterval(() => {
         drawEveryPlanet();
     }, 1);
 }
@@ -202,11 +203,18 @@ document.querySelectorAll(".checkbox").forEach(checkbox => {
 
 canvas.addEventListener("wheel", (event) => {
     const delta = Math.sign(event.deltaY);
+    //TODO if scale < beacuoup > afficher tête leandro
     if (delta > 0) {
         scale*=1.1
     }
     else {
         scale/=1.1
+        if (scale < 100) {
+            clearInterval(intervalId);
+            let sun = new Image();
+            sun.src = "./assets/sun2.png"
+            context.drawImage(sun, 0, 0, canvas.width, canvas.height);
+        }
     }
 })
 
@@ -227,7 +235,6 @@ canvas.addEventListener('click', (e) => {
                     htmlCard.innerHTML = planetCard;
 
                     htmlCard.id = "card"
-                    console.log(card)
                     card.appendChild(htmlCard);
                 }
             }
