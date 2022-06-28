@@ -71,23 +71,27 @@ function drawPlanetIcon(name) {
     context.restore()
 
 
+    // Draw moon icon
     if (name === "earth" && typeMethod === "eulerAsy") {
         context.save();
         let moonName = "moon-eulerAsy"
-        context.translate(canvas.width/2, canvas.height/2)
-        context.fillStyle = planetSetup[moonName].color;
 
-        if (planetSetup[moonName].time > planetSetup[moonName].numberOfPoints-speed*2) {
-            planetSetup[moonName].time = 1;
+        if (planetSetup[moonName].trajectory) {
+            context.translate(canvas.width/2, canvas.height/2)
+            context.fillStyle = planetSetup[moonName].color;
+
+            if (planetSetup[moonName].time > planetSetup[moonName].numberOfPoints-speed*2) {
+                planetSetup[moonName].time = 1;
+            }
+
+            context.arc(planetSetup[moonName].trajectory[planetSetup[moonName].time][0][0]*55/scale + planetSetup[name + "-" + typeMethod].trajectory[planetSetup[name + "-" + typeMethod].time][0][0]/scale,
+                planetSetup[moonName].trajectory[planetSetup[moonName].time][0][1]*55/scale + planetSetup[name + "-" + typeMethod].trajectory[planetSetup[name + "-" + typeMethod].time][0][1]/scale,
+                planetSetup[moonName].radius*2000000/scale,
+                0, 2*Math.PI);
+            context.fill();
+            context.restore()
+            planetSetup[moonName].time+=speed;
         }
-
-        context.arc(planetSetup[moonName].trajectory[planetSetup[moonName].time][0][0]*55/scale + planetSetup[name + "-" + typeMethod].trajectory[planetSetup[name + "-" + typeMethod].time][0][0]/scale,
-            planetSetup[moonName].trajectory[planetSetup[moonName].time][0][1]*55/scale + planetSetup[name + "-" + typeMethod].trajectory[planetSetup[name + "-" + typeMethod].time][0][1]/scale,
-            planetSetup[moonName].radius*2000000/scale,
-            0, 2*Math.PI);
-        context.fill();
-        context.restore()
-        planetSetup[moonName].time+=speed;
     }
 
     planetSetup[name + "-" + typeMethod].time+=speed
@@ -213,15 +217,16 @@ canvas.addEventListener("wheel", (event) => {
 })
 
 canvas.addEventListener('click', (e) => {
+    if (e.offsetY > 380 && e.offsetY < 420 && e.offsetX > 380 && e.offsetX < 420) {
+        endOfTheWorld()
+    }
+
     Object.entries(planetSetup).forEach(([key, value]) => {
         let planet2 = planetSetup[key]
         if (planet2.trajectory) {
             if (planet2.trajectory[value.time][0][0]/scale > e.offsetX-(canvas.width/2)-10 && planet2.trajectory[value.time][0][0]/scale < e.offsetX-(canvas.width/2)+10) {
                 if (planet2.trajectory[value.time][0][1]/scale > e.offsetY-(canvas.height/2)-10 && planet2.trajectory[value.time][0][1]/scale < e.offsetY-(canvas.height/2)+10) {
-                    if (key === "moon-eulerAsy") {
-                        endOfTheWorld()
-                    }
-                    else {
+                    if (key !== "moon-eulerAsy") {
                         let card = document.querySelector("#geo")
                         let actualCard = document.getElementById("card")
                         if (document.getElementById("card")) {
@@ -314,13 +319,14 @@ let boumTime = 1;
 
 function drawExplosion() {
     boumInterval = setInterval(() => {
-        if (boumTime < canvas.height) {
+        if (boumTime < canvas.height*2) {
             context.save();
-            context.translate(canvas.width/2, canvas.height/2)
+            context.moveTo(canvas.width/2, canvas.height/2);
             context.fillStyle = "#3D3D3D"
             context.strokeStyle = "yellow"
-            context.lineWidth = 4;
-            context.arc(0, 0, boumTime, 0, Math.PI*2, false);
+            context.lineWidth = boumTime/4;
+            context.beginPath();
+            context.arc(canvas.width/2, canvas.height/2, boumTime, 0, Math.PI*2, false);
             context.closePath();
             context.fill();
             context.stroke();
