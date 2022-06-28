@@ -103,7 +103,7 @@ function clearCanvas() {
 
 
 function drawEveryPlanet() {
-    clearCanvas()
+    //clearCanvas()
     drawSun()
     Object.keys(planetSetup).forEach(planet => {
         let name = planet.split("-")[0]
@@ -165,6 +165,7 @@ function init() {
 function main() {
     init()
     intervalId = setInterval(() => {
+        clearCanvas();
         drawEveryPlanet();
     }, 1);
 }
@@ -203,7 +204,6 @@ document.querySelectorAll(".checkbox").forEach(checkbox => {
 
 canvas.addEventListener("wheel", (event) => {
     const delta = Math.sign(event.deltaY);
-    //TODO if scale < beacuoup > afficher tête leandro
     if (delta > 0) {
         scale*=1.1
     }
@@ -224,18 +224,23 @@ canvas.addEventListener('click', (e) => {
         if (planet2.trajectory) {
             if (planet2.trajectory[value.time][0][0]/scale > e.offsetX-(canvas.width/2)-10 && planet2.trajectory[value.time][0][0]/scale < e.offsetX-(canvas.width/2)+10) {
                 if (planet2.trajectory[value.time][0][1]/scale > e.offsetY-(canvas.height/2)-10 && planet2.trajectory[value.time][0][1]/scale < e.offsetY-(canvas.height/2)+10) {
-                    let card = document.querySelector("#geo")
-                    let actualCard = document.getElementById("card")
-                    if (document.getElementById("card")) {
-                        card.removeChild(actualCard);
+                    if (key === "moon-eulerAsy") {
+                        endOfTheWorld()
                     }
-                    let name = key.split("-")[0]
-                    let planetCard = Card[name]
-                    let htmlCard = document.createElement("div")
-                    htmlCard.innerHTML = planetCard;
+                    else {
+                        let card = document.querySelector("#geo")
+                        let actualCard = document.getElementById("card")
+                        if (document.getElementById("card")) {
+                            card.removeChild(actualCard);
+                        }
+                        let name = key.split("-")[0]
+                        let planetCard = Card[name]
+                        let htmlCard = document.createElement("div")
+                        htmlCard.innerHTML = planetCard;
 
-                    htmlCard.id = "card"
-                    card.appendChild(htmlCard);
+                        htmlCard.id = "card"
+                        card.appendChild(htmlCard);
+                    }
                 }
             }
         }
@@ -255,3 +260,100 @@ document.querySelectorAll(".method").forEach(button => {
         })
     })
 })
+
+
+
+
+/* ---- I'M SUPPOSED TO MAKE A DIAPO BUT IDK WHY I PREFERE THAT ----- */
+let edlmInterval;
+let time = 0;
+
+function endOfTheWorld() {
+    clearInterval(intervalId);
+    let edlm = new Image();
+    edlm.src = "./assets/edlm.png"
+
+    edlmInterval = setInterval(() => {
+
+        if (time > 300) {
+            clearInterval(edlmInterval);
+            fakeTimer(edlm, time)
+        }
+        else {
+            clearCanvas();
+            drawEveryPlanet()
+            context.drawImage(edlm, canvas.width-time, canvas.height-time, 80, 80);
+            time+=10;
+        }
+    }, 10)
+}
+
+let laserInterval;
+let laserTime = 0;
+
+function drawLaser(time, edlm) {
+
+    laserTime = time
+    laserInterval = setInterval(() => {
+        if (laserTime < 370) {
+            clearCanvas();
+            context.save();
+            context.strokeStyle = "yellow"
+            context.lineWidth = 4;
+            context.moveTo(canvas.width - laserTime, canvas.height-laserTime);
+            context.lineTo(canvas.width-laserTime-15, canvas.height-laserTime-15);
+            context.stroke();
+            context.restore();
+            drawEveryPlanet();
+            context.drawImage(edlm, canvas.width-time, canvas.height-time, 80, 80);
+            laserTime+=5;
+        }
+        else {
+            clearInterval(laserInterval);
+            drawExplosion()
+        }
+    }, 1)
+}
+
+let boumInterval;
+let boumTime = 1;
+
+function drawExplosion() {
+    boumInterval = setInterval(() => {
+        if (boumTime < canvas.height) {
+            context.save();
+            context.translate(canvas.width/2, canvas.height/2)
+            context.fillStyle = "#3D3D3D"
+            context.strokeStyle = "yellow"
+            context.lineWidth = 4;
+            context.arc(0, 0, boumTime, 0, Math.PI*2, false);
+            context.closePath();
+            context.fill();
+            context.stroke();
+            context.restore();
+            boumTime*=1.8;
+        }
+        else {
+            clearCanvas();
+            clearInterval(boumInterval);
+        }
+
+    }, 100)
+}
+
+function fakeTimer(edlm , time) {
+    let fakeTimer = 0;
+    let pauseInterval;
+    pauseInterval = setInterval(() => {
+        if (fakeTimer < 20) {
+            clearCanvas();
+            drawEveryPlanet();
+            context.drawImage(edlm, canvas.width-time, canvas.height-time, 80, 80);
+            fakeTimer++;
+        }
+        else {
+            clearInterval(pauseInterval);
+            drawLaser(time, edlm)
+        }
+    }, 1)
+}
