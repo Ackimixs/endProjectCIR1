@@ -209,12 +209,6 @@ canvas.addEventListener("wheel", (event) => {
     }
     else {
         scale/=1.1
-        if (scale < 100) {
-            clearInterval(intervalId);
-            let sun = new Image();
-            sun.src = "./assets/sun2.png"
-            context.drawImage(sun, 0, 0, canvas.width, canvas.height);
-        }
     }
 })
 
