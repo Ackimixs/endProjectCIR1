@@ -1,0 +1,41 @@
+23/06
+    15h
+    - creation du projet sur clion
+
+    16h
+    - creation des premieres structures dans un seul fichier
+
+    17h30
+    - repartition des struct dans des fichier separer
+
+    18h
+    - fin des opration d'acces sur les struct (get...)
+
+    22h
+    - comprehension vague du calcule de trajectoire - mise en place du point 0 de la terre
+
+    23h30
+    - sortie sans erreur (au 2eme lancement ^^) et struct bien respecté (debug) -> init
+
+24/06
+    9h
+    - file with all the constants of the project
+
+    10h
+    - commencement de la methode d'euler
+
+    13h30
+    - ecriture de fichier / sortie console
+
+    16h
+    - commencement du site web -> javascript
+
+25/06
+    grosse partie de la journée consacrée au javascript
+
+
+
+26/06
+    debug ALORS QU'IL FALLAIT JUSTE MERTTRE UNE FUCKING LIGNE DE CODE
+
+    fin de journée menu + script bash + commentaire

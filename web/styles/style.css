@@ -1,0 +1,208 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    background : #3D3D3D;
+    border-radius: 30px;
+    /*position: absolute;*/
+}
+
+li {
+    list-style-type: none;
+}
+
+#carre {
+    width  : 800px;
+    height : 7000px;
+    background : rgb(50, 50, 50);
+    /*position: relative;
+    top: 10px; left : 300px;*/
+
+}
+
+#menu {
+    position: absolute;
+    color : rgb(242, 240, 240);
+    display: flex;
+    flex-direction: column;
+}
+
+#rectangle {
+  width: 400px;
+  height: 530px;
+  background : rgb(50, 50, 50);
+    /*padding: 10px;*/
+    border-radius: 10px;
+
+}
+#geo{
+  display : flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+header {
+    text-align: center;
+    color: aliceblue;
+    padding-bottom: 25px;
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#but{
+    color: aliceblue;
+}
+
+.toggle{
+    display: block;
+    font-size: 3rem;
+    cursor: pointer;
+    
+}
+
+
+.op{
+    display: block;
+}
+
+
+.clo{
+    display: none;
+}
+/* permet de d'afficher le bouton ouvrir lorsque l'on arrive sur le site et ne pas afficher le bouton fermer */
+
+.open .op{
+    display: none;
+}
+
+.open .clo{
+    display: block;
+}
+
+.open .list{
+    transform: translateX(0%);
+}  /* Permet de faire apparaître le menu lorsque l'on clique sur le bouton */
+
+#image{
+    width: 300px;
+    margin: 10px;
+    
+}
+#cen{
+    text-align: center;
+}
+
+li input[type="checkbox"]{
+    transform: scale(2);
+}
+ul * {
+    margin: 7px 15px 0 0;
+}
+
+
+
+/* ----- BUTTON EULER ------- */
+
+.buttonEuler {
+    display : flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.buttonEuler button {
+    border-radius: 10px;
+}
+
+
+
+
+/* ------  CSS 2 ------ */
+h1{
+    text-align: center;
+    color: aliceblue;
+}
+
+/*li{
+    margin: 25px;
+    color: aliceblue;
+}*/
+
+main {
+    background-image: url(../assets/footer_bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-origin: content-box;
+    height: 83.9%;
+}
+
+p{
+    color: aliceblue;
+}
+
+#intro{
+    text-align: center;
+    border: 1px solid white;
+}
+
+#bogda{
+    height: 100px;
+    width: 150px;
+    margin: 120px;
+}
+
+
+ul p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+
+/* ---- MENU ----- */
+.menuHead {
+    margin-left: 20px;
+}
+
+.menuHead ul, .menu li {
+    margin: 0;
+    padding: 0;
+}
+.menuHead ul {
+    background: gray;
+    list-style: none;
+    width: 100%;
+}
+.menuHead li {
+    float: left;
+    position: relative;
+    width:auto;
+}
+.menuHead a {
+    background-color: gray;
+    color: #FFFFFF;
+    display: block;
+    font: bold 12px/20px sans-serif;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+}
+.menuHead li:hover a {
+    background: #000000;
+}

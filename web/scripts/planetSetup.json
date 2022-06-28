@@ -1,0 +1,121 @@
+{
+  "mercury-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 2440,
+    "color": "lightblue"
+  },
+  "venus-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 6052,
+    "color": "yellow"
+  },
+  "earth-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 6378,
+    "color": "blue"
+  },
+  "mars-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 3396,
+    "color": "red"
+  },
+  "jupiter-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius" : 71492,
+    "color": "brown"
+  },
+  "saturn-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 60268,
+    "color": "gray"
+  },
+  "uranus-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 25559,
+    "color": "pink"
+  },
+  "neptune-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 24764,
+    "color": "darkblue"
+  },
+  "mercury-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 2440,
+    "color": "lightblue"
+  },
+  "venus-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 6052,
+    "color": "yellow"
+  },
+  "earth-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 6378,
+    "color": "blue"
+  },
+  "mars-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 3396,
+    "color": "red"
+  },
+  "jupiter-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius" : 71492,
+    "color": "brown"
+  },
+  "saturn-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 60268,
+    "color": "gray"
+  },
+  "uranus-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 25559,
+    "color": "pink"
+  },
+  "neptune-euler": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 24764,
+    "color": "darkblue"
+  },
+  "moon-eulerAsy": {
+    "trajectory": null,
+    "time": 0,
+    "numberOfPoints": 0,
+    "radius": 2400,
+    "color": "blue"
+  }
+}
